@@ -11,7 +11,7 @@ import "strconv"
 func main() {
     fmt.Print("")
     var input string
-    //var stack int
+    var stack int
     
     for input != "exit" && input != "e" {
         
@@ -25,12 +25,16 @@ func main() {
         
         // Take the first value, second and the operator from third entry.
         
+        if len(split) == 3 {
+        
         var first,_ = strconv.Atoi(split[0])
         var sec,_ = strconv.Atoi(split[1])
-        
         switch split[2]{
             case "*":
-            fmt.Println(first * sec)
+            var stk int = first * sec
+            fmt.Println(stk)
+            stack = stack + stk
+            fmt.Println(stack) 
             case "/": 
             fmt.Println(first / sec)
             case "-": 
@@ -39,7 +43,10 @@ func main() {
             fmt.Println(first + sec)
             
             default: fmt.Println("Unknown")
-            
+         } 
+         
+         if split[0] == "p" { fmt.Println(stack); }
+         
         }
         
        
