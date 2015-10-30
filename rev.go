@@ -9,55 +9,57 @@ import "strings"
 import "strconv"
 
 func main() {
-    fmt.Print("")
-    var input string
-    var stack int
-    
-    for input != "exit" && input != "e" {
-        
-        reader := bufio.NewReader(os.Stdin)
-        text,_ := reader.ReadString('\n')
-        
-       split := strings.Fields(text)
-	
-        // Take the first value, second and the operator from third entry.
-        
-        if len(split) == 3 {
-        
-        var first,_ = strconv.Atoi(split[0])
-        var sec,_ = strconv.Atoi(split[1])
+	fmt.Print("")
+	var input string
+	var stack int
 
-        switch split[2]{
-            case "*":
-            	var stk int = first * sec
-            	stack = stack + stk
-            case "/": 
-		var stk int = first / sec
-            	stack = stack + stk
-            case "-": 
-		var stk int = first - sec
-            	stack = stack + stk
-            case "+": 
-		var stk int = first + sec
-            	stack = (stack + stk)
-            
-            default: fmt.Println("Unknown")
+	for input != "exit" && input != "e" {
 
-         } // end switch 
-	
+		reader := bufio.NewReader(os.Stdin)
+		text, _ := reader.ReadString('\n')
 
-        } //end for 
-         
-         if split[0] == "p" { fmt.Println(stack); }
-        
+		split := strings.Fields(text)
 
-       
-    }
-    
-   /*
-   fmt.Scanln(&input) << Think the issue at the moment is this line.
-   The doc says that it takes each string seperated by space is taken as an argument.
-   */
+		// Take the first value, second and the operator from third entry.
+
+		if len(split) == 3 {
+
+			var first, _ = strconv.Atoi(split[0])
+			var sec, _ = strconv.Atoi(split[1])
+
+			switch split[2] {
+			case "*":
+				var stk int = first * sec
+				stack = stack + stk
+			case "/":
+				var stk int = first / sec
+				stack = stack + stk
+			case "-":
+				var stk int = first - sec
+				stack = stack + stk
+			case "+":
+				var stk int = first + sec
+				stack = (stack + stk)
+
+			default:
+				fmt.Println("Unknown")
+
+			} // end switch
+
+		} //end for
+
+		if len(split) != 0 {
+
+			if split[0] == "p" {
+				fmt.Println(stack)
+			}
+
+		}
+
+	}
+
+	/*
+	   fmt.Scanln(&input) << Think the issue at the moment is this line.
+	   The doc says that it takes each string seperated by space is taken as an argument.
+	*/
 }
-
-
