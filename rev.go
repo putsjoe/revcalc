@@ -19,8 +19,8 @@ func main() {
         text,_ := reader.ReadString('\n')
         //fmt.Println(text)
         
-        split := strings.Fields(text)
-        
+       split := strings.Fields(text)
+	
         //fmt.Println(split, len(split))
         
         // Take the first value, second and the operator from third entry.
@@ -29,26 +29,31 @@ func main() {
         
         var first,_ = strconv.Atoi(split[0])
         var sec,_ = strconv.Atoi(split[1])
+
         switch split[2]{
             case "*":
-            var stk int = first * sec
-            fmt.Println(stk)
-            stack = stack + stk
-            fmt.Println(stack) 
+            	var stk int = first * sec
+            	stack = stack + stk
             case "/": 
-            fmt.Println(first / sec)
+		var stk int = first / sec
+            	stack = stack + stk
             case "-": 
-            fmt.Println(first - sec)
+		var stk int = first - sec
+            	stack = stack + stk
             case "+": 
-            fmt.Println(first + sec)
+		var stk int = first + sec
+            	stack = (stack + stk)
             
             default: fmt.Println("Unknown")
-         } 
+
+         } // end switch 
+	
+
+        } //end for 
          
          if split[0] == "p" { fmt.Println(stack); }
-         
-        }
         
+
        
     }
     
