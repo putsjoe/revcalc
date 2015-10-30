@@ -49,12 +49,13 @@ func main() {
 		} //end for
 
 		if len(split) != 0 {
-			// Turn it into a case statement
-			if split[0] == "p" {
+
+			switch split[0] {
+			case "p":
 				fmt.Println(stack)
-			}
-			if split[0] == "c" {
+			case "c":
 				stack = 0
+
 			}
 
 		}
