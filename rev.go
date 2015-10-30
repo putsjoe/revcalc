@@ -17,12 +17,9 @@ func main() {
         
         reader := bufio.NewReader(os.Stdin)
         text,_ := reader.ReadString('\n')
-        //fmt.Println(text)
         
        split := strings.Fields(text)
 	
-        //fmt.Println(split, len(split))
-        
         // Take the first value, second and the operator from third entry.
         
         if len(split) == 3 {
@@ -57,8 +54,6 @@ func main() {
        
     }
     
-
-
    /*
    fmt.Scanln(&input) << Think the issue at the moment is this line.
    The doc says that it takes each string seperated by space is taken as an argument.
