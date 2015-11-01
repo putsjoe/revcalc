@@ -8,6 +8,14 @@ import "os"
 import "strings"
 import "strconv"
 
+func print(a int) {
+
+	fmt.Print(" ")
+	fmt.Print(a)
+	fmt.Println("")
+
+}
+
 func main() {
 	fmt.Print("")
 	var input string
@@ -15,6 +23,7 @@ func main() {
 
 	for input != "exit" && input != "e" {
 
+		fmt.Print(" ")
 		reader := bufio.NewReader(os.Stdin)
 		text, _ := reader.ReadString('\n')
 
@@ -52,7 +61,7 @@ func main() {
 
 			switch split[0] {
 			case "p":
-				fmt.Println(stack)
+				print(stack)
 			case "c":
 				stack = 0
 
