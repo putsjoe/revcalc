@@ -16,6 +16,19 @@ func print(a int) {
 
 }
 
+func handle_stack(a string, stack int) int {
+
+	switch a {
+
+	case "p":
+		print(stack)
+	case "c":
+		stack = 0
+	}
+	return stack
+
+}
+
 func main() {
 	fmt.Println("Reverse Polish Calculator with Stack:: ")
 	fmt.Print("")
@@ -57,35 +70,15 @@ func main() {
 			} // end switch
 
 			if len(split) == 4 {
-				switch split[3] {
-
-				case "p":
-					print(stack)
-				case "c":
-					stack = 0
-
-				}
-
+				stack = handle_stack(split[3], stack)
 			}
 
 		} //end if
 
 		if len(split) != 0 {
-
-			switch split[0] {
-			case "p":
-				print(stack)
-			case "c":
-				stack = 0
-
-			}
-
+			stack = handle_stack(split[0], stack)
 		}
 
 	} // end for
 
-	/*
-	   fmt.Scanln(&input) << Think the issue at the moment is this line.
-	   The doc says that it takes each string seperated by space is taken as an argument.
-	*/
 }
