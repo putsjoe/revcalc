@@ -17,6 +17,7 @@ func print(a int) {
 }
 
 func main() {
+	fmt.Println("Reverse Polish Calculator with Stack:: ")
 	fmt.Print("")
 	var input string
 	var stack int
@@ -31,7 +32,7 @@ func main() {
 
 		// Take the first value, second and the operator from third entry.
 
-		if len(split) == 3 {
+		if len(split) >= 3 {
 
 			var first, _ = strconv.Atoi(split[0])
 			var sec, _ = strconv.Atoi(split[1])
@@ -55,7 +56,19 @@ func main() {
 
 			} // end switch
 
-		} //end for
+			if len(split) == 4 {
+				switch split[3] {
+
+				case "p":
+					print(stack)
+				case "c":
+					stack = 0
+
+				}
+
+			}
+
+		} //end if
 
 		if len(split) != 0 {
 
@@ -69,7 +82,7 @@ func main() {
 
 		}
 
-	}
+	} // end for
 
 	/*
 	   fmt.Scanln(&input) << Think the issue at the moment is this line.
