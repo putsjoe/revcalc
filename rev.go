@@ -25,6 +25,7 @@ func handle_stack(a string, stack int) int {
 	case "c":
 		stack = 0
 	}
+
 	return stack
 
 }
@@ -43,9 +44,13 @@ func main() {
 
 		split := strings.Fields(text)
 
-		// Take the first value, second and the operator from third entry.
-
 		if len(split) >= 3 {
+
+			switch split[0] {
+			case "p", "c":
+				stack = handle_stack(split[0], stack)
+				split = append(split[:0], split[1:]...)
+			}
 
 			var first, _ = strconv.Atoi(split[0])
 			var sec, _ = strconv.Atoi(split[1])
@@ -71,6 +76,10 @@ func main() {
 
 			if len(split) == 4 {
 				stack = handle_stack(split[3], stack)
+			}
+			if len(split) == 5 {
+				stack = handle_stack(split[3], stack)
+				stack = handle_stack(split[4], stack)
 			}
 
 		} //end if
